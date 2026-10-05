@@ -1,0 +1,12 @@
+[
+  {"id":"Q01","question":"Who worked on the last compliance audit and what tools did they use?","expected_nodes":["P001","P005","PR001","T001","T003","T004"],"expected_relations":["WORKED_ON","USED_TOOL"],"type":"multi_hop"},
+  {"id":"Q02","question":"What decisions were made about the pricing model and who approved them?","expected_nodes":["DEC001","PR003","P003","P006","D005"],"expected_relations":["DECISION_FOR","APPROVED_BY"],"type":"decision_chain"},
+  {"id":"Q03","question":"Who owns the Customer 360 data pipelines and which technologies do they use?","expected_nodes":["P002","PR002","T005","T006","S002","S003"],"expected_relations":["WORKED_ON","USED_TOOL","HAS_SKILL"],"type":"multi_hop"},
+  {"id":"Q04","question":"Which people approved the decision to use Pinecone for support copilot retrieval?","expected_nodes":["DEC003","P004","PR004","T008"],"expected_relations":["APPROVED_BY","DECISION_FOR"],"type":"decision_chain"},
+  {"id":"Q05","question":"What tools were used by the team responsible for the SOC2 audit evidence?","expected_nodes":["P001","P005","T001","T003","T004","D001","D002"],"expected_relations":["WORKED_ON","USED_TOOL","HAS_DOCUMENT"],"type":"multi_hop"},
+  {"id":"Q06","question":"Who approved the Snowflake decision, and what project was it for?","expected_nodes":["DEC002","P002","P007","PR002","T005"],"expected_relations":["APPROVED_BY","DECISION_FOR"],"type":"decision_chain"},
+  {"id":"Q07","question":"Which people connected to pricing have financial modeling or pricing skills?","expected_nodes":["P003","P006","S006","S008","PR003"],"expected_relations":["WORKED_ON","HAS_SKILL"],"type":"skill_graph"},
+  {"id":"Q08","question":"Who worked on cloud cost optimization, what infrastructure tools were involved, and who approved the rightsizing policy?","expected_nodes":["P007","P006","PR005","T003","T007","T004","DEC005"],"expected_relations":["WORKED_ON","USED_TOOL","APPROVED_BY","DECISION_FOR"],"type":"multi_hop"},
+  {"id":"Q09","question":"For the vendor risk assessment, which people covered security, compliance, and legal review?","expected_nodes":["D008","P001","P005","P008","S001","S005"],"expected_relations":["WORKED_ON","HAS_SKILL"],"type":"multi_hop"},
+  {"id":"Q10","question":"What was the approved enterprise pricing model, who approved it, and which document records the decision?","expected_nodes":["DEC001","P003","P006","D005","PR003"],"expected_relations":["APPROVED_BY","DOCUMENTED_IN","DECISION_FOR"],"type":"decision_chain"}
+]
