@@ -1,0 +1,1071 @@
+[
+  {
+    "id": "Q01",
+    "question": "Who worked on the last compliance audit and what tools did they use?",
+    "type": "multi_hop",
+    "expected_nodes": [
+      "P001",
+      "P005",
+      "PR001",
+      "T001",
+      "T003",
+      "T004"
+    ],
+    "graph_nodes": [
+      "D008",
+      "P001",
+      "P005",
+      "PR001",
+      "T001",
+      "T003",
+      "T004"
+    ],
+    "vector_nodes": [
+      "D002",
+      "D008",
+      "P001",
+      "PR001",
+      "S001"
+    ],
+    "graph_recall": 1.0,
+    "vector_recall": 0.333,
+    "graph_relationships": [
+      "SOC2 Compliance Audit -[WORKED_ON]-> Kavya Shah",
+      "SOC2 Compliance Audit -[WORKED_ON]-> Aisha Raman",
+      "Kavya Shah -[WORKED_ON]-> Vendor Risk Assessment",
+      "Kavya Shah -[USED_TOOL]-> Datadog",
+      "Kavya Shah -[USED_TOOL]-> AWS",
+      "Kavya Shah -[WORKED_ON]-> SOC2 Compliance Audit",
+      "Aisha Raman -[AUTHORED]-> Vendor Risk Assessment",
+      "Aisha Raman -[WORKED_ON]-> Vendor Risk Assessment",
+      "Aisha Raman -[USED_TOOL]-> Jira",
+      "Aisha Raman -[WORKED_ON]-> SOC2 Compliance Audit",
+      "Vendor Risk Assessment -[AUTHORED]-> Aisha Raman",
+      "Vendor Risk Assessment -[WORKED_ON]-> Kavya Shah",
+      "Vendor Risk Assessment -[WORKED_ON]-> Aisha Raman",
+      "Jira -[USED_TOOL]-> Aisha Raman",
+      "Datadog -[USED_TOOL]-> Kavya Shah",
+      "AWS -[USED_TOOL]-> Kavya Shah"
+    ],
+    "vector_scores": [
+      {
+        "id": "P001",
+        "score": 0.570773065,
+        "label": "Person",
+        "name": "Aisha Raman"
+      },
+      {
+        "id": "D002",
+        "score": 0.494895935,
+        "label": "Document",
+        "name": "Audit Readiness Runbook"
+      },
+      {
+        "id": "S001",
+        "score": 0.493344307,
+        "label": "Skill",
+        "name": "Compliance"
+      },
+      {
+        "id": "D008",
+        "score": 0.464080334,
+        "label": "Document",
+        "name": "Vendor Risk Assessment"
+      },
+      {
+        "id": "PR001",
+        "score": 0.434331417,
+        "label": "Project",
+        "name": "SOC2 Compliance Audit"
+      }
+    ],
+    "graph_answer": "**Last compliance audit:** SOC2 Compliance Audit  \n\n### People who worked on it (per the graph)\n- **Kavya Shah** – linked to the audit with a `WORKED_ON` relationship.  \n- **Aisha Raman** – also linked to the audit with a `WORKED_ON` relationship.  \n\n### Tools each person used (per the graph)\n| Person | Tool(s) used |\n|--------|--------------|\n| **Kavya Shah** | **Datadog** (observability & infrastructure monitoring) <br> **AWS** (cloud‑infrastructure platform) |\n| **Aisha Raman** | **Jira** (issue & project tracking) |\n\n### Supporting document excerpts\n- *“Security and compliance reviewed a critical analytics vendor. **Aisha Raman** coordinated the review, **Kavya Shah** assessed security controls…”* – confirms both were involved in the compliance effort.  \n- The document’s bullet points list **“Issue and project tracking.”** (Jira) and **“Observability and infrastructure monitoring.”** (Datadog) as well as **“Cloud infrastructure platform.”** (AWS), matching the tools attributed to the individuals in the graph.\n\n**Answer:** The SOC2 Compliance Audit was worked on by **Kavya Shah** and **Aisha Raman**. Kavya Shah used **Datadog** and **AWS**, while Aisha Raman used **Jira**.",
+    "vector_answer": "The most recent compliance audit (the SOC 2 Type II audit) involved the following people and tools, as documented:\n\n| Role | Person | Tool(s) Used |\n|------|--------|--------------|\n| Compliance sign‑off coordinator | **Aisha Raman** | – |\n| Security evidence reviewer | **Kavya Shah** | – |\n| Control owners (various) | – | **Jira** – used to submit audit evidence; **AWS IAM reports** and **Datadog incident records** – commonly attached as evidence【D002】 |\n\nThus, the audit was worked on by Aisha Raman, Kavya Shah, and the relevant control owners, and they used Jira for evidence collection together with AWS IAM reports and Datadog incident records."
+  },
+  {
+    "id": "Q02",
+    "question": "What decisions were made about the pricing model and who approved them?",
+    "type": "decision_chain",
+    "expected_nodes": [
+      "D005",
+      "DEC001",
+      "P003",
+      "P006",
+      "PR003"
+    ],
+    "graph_nodes": [
+      "D004",
+      "D005",
+      "DEC001",
+      "DEC005",
+      "P003",
+      "P006",
+      "P008",
+      "PR003",
+      "PR005",
+      "S006",
+      "S008",
+      "T002",
+      "T004"
+    ],
+    "vector_nodes": [
+      "D004",
+      "D005",
+      "DEC001",
+      "PR003",
+      "S006"
+    ],
+    "graph_recall": 1.0,
+    "vector_recall": 0.6,
+    "graph_relationships": [
+      "Pricing -[HAS_SKILL]-> Meera Iyer",
+      "Pricing Decision Log -[DOCUMENTED_IN]-> Adopt hybrid enterprise pricing",
+      "Pricing Decision Log -[AUTHORED]-> Daniel Wong",
+      "Pricing Decision Log -[HAS_DOCUMENT]-> Pricing Revamp 2026",
+      "Meera Iyer -[APPROVED_BY]-> Adopt hybrid enterprise pricing",
+      "Meera Iyer -[AUTHORED]-> Pricing Strategy Memo",
+      "Meera Iyer -[USED_TOOL]-> Confluence",
+      "Meera Iyer -[HAS_SKILL]-> Pricing",
+      "Meera Iyer -[WORKED_ON]-> Pricing Revamp 2026",
+      "Adopt hybrid enterprise pricing -[DOCUMENTED_IN]-> Pricing Decision Log",
+      "Adopt hybrid enterprise pricing -[APPROVED_BY]-> Daniel Wong",
+      "Adopt hybrid enterprise pricing -[APPROVED_BY]-> Meera Iyer",
+      "Adopt hybrid enterprise pricing -[DECISION_FOR]-> Pricing Revamp 2026",
+      "Pricing Strategy Memo -[AUTHORED]-> Meera Iyer",
+      "Pricing Strategy Memo -[HAS_DOCUMENT]-> Pricing Revamp 2026",
+      "Confluence -[USED_TOOL]-> Daniel Wong",
+      "Confluence -[USED_TOOL]-> Meera Iyer",
+      "Pricing Revamp 2026 -[DECISION_FOR]-> Adopt hybrid enterprise pricing",
+      "Pricing Revamp 2026 -[HAS_DOCUMENT]-> Pricing Decision Log",
+      "Pricing Revamp 2026 -[HAS_DOCUMENT]-> Pricing Strategy Memo",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Sara Thomas",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Daniel Wong",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Meera Iyer",
+      "Daniel Wong -[APPROVED_BY]-> Introduce AWS rightsizing policy",
+      "Daniel Wong -[USED_TOOL]-> Datadog",
+      "Daniel Wong -[WORKED_ON]-> Cloud Cost Optimization",
+      "Daniel Wong -[APPROVED_BY]-> Adopt hybrid enterprise pricing",
+      "Daniel Wong -[AUTHORED]-> Pricing Decision Log",
+      "Daniel Wong -[USED_TOOL]-> Confluence",
+      "Daniel Wong -[HAS_SKILL]-> Financial Modeling",
+      "Daniel Wong -[WORKED_ON]-> Pricing Revamp 2026",
+      "Introduce AWS rightsizing policy -[APPROVED_BY]-> Daniel Wong",
+      "Introduce AWS rightsizing policy -[DECISION_FOR]-> Cloud Cost Optimization",
+      "Datadog -[USED_TOOL]-> Daniel Wong",
+      "Cloud Cost Optimization -[DECISION_FOR]-> Introduce AWS rightsizing policy",
+      "Cloud Cost Optimization -[WORKED_ON]-> Daniel Wong",
+      "Financial Modeling -[HAS_SKILL]-> Daniel Wong",
+      "Sara Thomas -[WORKED_ON]-> Pricing Revamp 2026"
+    ],
+    "vector_scores": [
+      {
+        "id": "D005",
+        "score": 0.616731644,
+        "label": "Document",
+        "name": "Pricing Decision Log"
+      },
+      {
+        "id": "D004",
+        "score": 0.580759048,
+        "label": "Document",
+        "name": "Pricing Strategy Memo"
+      },
+      {
+        "id": "DEC001",
+        "score": 0.552467346,
+        "label": "Decision",
+        "name": "Adopt hybrid enterprise pricing"
+      },
+      {
+        "id": "PR003",
+        "score": 0.551568031,
+        "label": "Project",
+        "name": "Pricing Revamp 2026"
+      },
+      {
+        "id": "S006",
+        "score": 0.461429536,
+        "label": "Skill",
+        "name": "Pricing"
+      }
+    ],
+    "graph_answer": "**Decision(s) about the pricing model**\n\n| Decision | What it decides | Project / Context | Approvers (per graph) | Supporting document excerpt |\n|----------|----------------|-------------------|-----------------------|-----------------------------|\n| **Adopt hybrid enterprise pricing** | Move to a hybrid base‑subscription + usage component for enterprise customers (the 2026 pricing model) | **Pricing Revamp 2026** – the initiative that evaluated usage‑based, seat‑based and hybrid packaging | • **Daniel Wong**  <br>• **Meera Iyer** | “The approved 2026 pricing model uses a hybrid base subscription plus usage component for enterprise customers. The decision was approved by Daniel Wong and Meera Iyer after finance modeling and customer research.” |\n\n**How the graph confirms the decision and its approvers**\n\n- **Decision node:** `Adopt hybrid enterprise pricing`  \n  - `-[APPROVED_BY]-> Daniel Wong` (graph)  \n  - `-[APPROVED_BY]-> Meera Iyer` (graph)  \n  - `-[DECISION_FOR]-> Pricing Revamp 2026` (graph) – ties the decision to the revamp project.  \n\n- **Documentation of the decision:**  \n  - `Pricing Decision Log` `-[DOCUMENTED_IN]-> Adopt hybrid enterprise pricing` and is authored by **Daniel Wong**.  \n  - The decision is also recorded in the `Pricing Strategy Memo` authored by **Meera Iyer**.  \n\n- **Tools used for the decision‑making process:**  \n  - Both approvers used **Confluence** (`Meera Iyer -[USED_TOOL]-> Confluence`, `Daniel Wong -[USED_TOOL]-> Confluence`).  \n\n**Summary**\n\nThe organization decided to **adopt a hybrid enterprise pricing model** for the **Pricing Revamp 2026** initiative. The decision was **approved by Daniel Wong and Meera Iyer**, as shown both in the graph relationships and corroborated by the document evidence. The decision was recorded in the *Pricing Decision Log* and the *Pricing Strategy Memo*, with Confluence serving as the collaboration tool.",
+    "vector_answer": "The organization decided to adopt a **hybrid enterprise pricing model** – a base subscription plus a usage‑based component for enterprise customers. This decision was **approved by Daniel Wong and Meera Iyer**【D005】."
+  },
+  {
+    "id": "Q03",
+    "question": "Who owns the Customer 360 data pipelines and which technologies do they use?",
+    "type": "multi_hop",
+    "expected_nodes": [
+      "P002",
+      "PR002",
+      "S002",
+      "S003",
+      "T005",
+      "T006"
+    ],
+    "graph_nodes": [
+      "D008",
+      "P001",
+      "P002",
+      "P003",
+      "P004",
+      "P005",
+      "P006",
+      "P007",
+      "P008",
+      "PR001",
+      "PR002",
+      "PR003",
+      "PR004",
+      "PR005",
+      "T001",
+      "T002",
+      "T003",
+      "T004",
+      "T005",
+      "T006",
+      "T007",
+      "T008"
+    ],
+    "vector_nodes": [
+      "D003",
+      "DEC002",
+      "PR002",
+      "T003",
+      "T005"
+    ],
+    "graph_recall": 0.667,
+    "vector_recall": 0.333,
+    "graph_relationships": [
+      "SOC2 Compliance Audit -[WORKED_ON]-> Kavya Shah",
+      "SOC2 Compliance Audit -[WORKED_ON]-> Aisha Raman",
+      "Customer 360 Platform -[WORKED_ON]-> Nikhil Rao",
+      "Customer 360 Platform -[WORKED_ON]-> Rohan Mehta",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Sara Thomas",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Daniel Wong",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Meera Iyer",
+      "AI Support Copilot -[WORKED_ON]-> Arjun Nair",
+      "Cloud Cost Optimization -[WORKED_ON]-> Daniel Wong",
+      "Cloud Cost Optimization -[WORKED_ON]-> Nikhil Rao",
+      "Kavya Shah -[WORKED_ON]-> Vendor Risk Assessment",
+      "Kavya Shah -[USED_TOOL]-> Datadog",
+      "Kavya Shah -[USED_TOOL]-> AWS",
+      "Kavya Shah -[WORKED_ON]-> SOC2 Compliance Audit",
+      "Aisha Raman -[AUTHORED]-> Vendor Risk Assessment",
+      "Aisha Raman -[WORKED_ON]-> Vendor Risk Assessment",
+      "Aisha Raman -[USED_TOOL]-> Jira",
+      "Aisha Raman -[WORKED_ON]-> SOC2 Compliance Audit",
+      "Vendor Risk Assessment -[AUTHORED]-> Aisha Raman",
+      "Vendor Risk Assessment -[WORKED_ON]-> Sara Thomas",
+      "Vendor Risk Assessment -[WORKED_ON]-> Kavya Shah",
+      "Vendor Risk Assessment -[WORKED_ON]-> Aisha Raman",
+      "Jira -[USED_TOOL]-> Aisha Raman",
+      "Datadog -[USED_TOOL]-> Daniel Wong",
+      "Datadog -[USED_TOOL]-> Kavya Shah",
+      "AWS -[USED_TOOL]-> Nikhil Rao",
+      "AWS -[USED_TOOL]-> Kavya Shah",
+      "Nikhil Rao -[USED_TOOL]-> Terraform",
+      "Nikhil Rao -[WORKED_ON]-> Cloud Cost Optimization",
+      "Nikhil Rao -[USED_TOOL]-> AWS",
+      "Nikhil Rao -[WORKED_ON]-> Customer 360 Platform",
+      "Rohan Mehta -[USED_TOOL]-> Python",
+      "Rohan Mehta -[USED_TOOL]-> Snowflake",
+      "Rohan Mehta -[WORKED_ON]-> Customer 360 Platform",
+      "Python -[USED_TOOL]-> Rohan Mehta",
+      "Snowflake -[USED_TOOL]-> Rohan Mehta",
+      "Terraform -[USED_TOOL]-> Nikhil Rao",
+      "Sara Thomas -[WORKED_ON]-> Vendor Risk Assessment",
+      "Sara Thomas -[WORKED_ON]-> Pricing Revamp 2026",
+      "Daniel Wong -[USED_TOOL]-> Datadog",
+      "Daniel Wong -[WORKED_ON]-> Cloud Cost Optimization",
+      "Daniel Wong -[USED_TOOL]-> Confluence",
+      "Daniel Wong -[WORKED_ON]-> Pricing Revamp 2026",
+      "Meera Iyer -[USED_TOOL]-> Confluence",
+      "Meera Iyer -[WORKED_ON]-> Pricing Revamp 2026",
+      "Confluence -[USED_TOOL]-> Arjun Nair",
+      "Confluence -[USED_TOOL]-> Daniel Wong",
+      "Confluence -[USED_TOOL]-> Meera Iyer",
+      "Arjun Nair -[USED_TOOL]-> Confluence",
+      "Arjun Nair -[USED_TOOL]-> Pinecone",
+      "Arjun Nair -[WORKED_ON]-> AI Support Copilot",
+      "Pinecone -[USED_TOOL]-> Arjun Nair"
+    ],
+    "vector_scores": [
+      {
+        "id": "D003",
+        "score": 0.690903723,
+        "label": "Document",
+        "name": "Customer 360 Architecture Notes"
+      },
+      {
+        "id": "PR002",
+        "score": 0.600733757,
+        "label": "Project",
+        "name": "Customer 360 Platform"
+      },
+      {
+        "id": "DEC002",
+        "score": 0.420906961,
+        "label": "Decision",
+        "name": "Use Snowflake as Customer 360 warehouse"
+      },
+      {
+        "id": "T005",
+        "score": 0.394253731,
+        "label": "Tool",
+        "name": "Snowflake"
+      },
+      {
+        "id": "T003",
+        "score": 0.37726593,
+        "label": "Tool",
+        "name": "AWS"
+      }
+    ],
+    "graph_answer": "**Owner(s) of the Customer 360 data pipelines**\n\n| Person | Relationship to the Customer 360 Platform (graph) | Role implied by the graph |\n|--------|---------------------------------------------------|----------------------------|\n| **Nikhil Rao** | `Customer 360 Platform –[WORKED_ON]→ Nikhil Rao` | Primary engineer / owner of the pipeline infrastructure |\n| **Rohan Mehta** | `Customer 360 Platform –[WORKED_ON]→ Rohan Mehta` | Co‑owner / data‑engineering lead for the pipeline logic |\n\nThe graph shows **both Nikhil Rao and Rohan Mehta** as the only individuals directly linked to the *Customer 360 Platform* with a *WORKED_ON* edge, which is the strongest indicator of ownership in the available data.\n\n---\n\n**Technologies each owner uses (graph‑derived)**  \n\n| Owner | Tools / Technologies (graph) | How the tool is linked |\n|-------|------------------------------|------------------------|\n| **Nikhil Rao** | **AWS** – `AWS –[USED_TOOL]→ Nikhil Rao`  <br> **Terraform** – `Nikhil Rao –[USED_TOOL]→ Terraform` | AWS supplies the cloud compute / storage for the pipelines; Terraform is the infrastructure‑as‑code (IaC) tool he uses to provision and manage that infrastructure. |\n| **Rohan Mehta** | **Python** – `Python –[USED_TOOL]→ Rohan Mehta`  <br> **Snowflake** – `Snowflake –[USED_TOOL]→ Rohan Mehta` | Python is the programming language for pipeline orchestration / data transformation; Snowflake is the cloud data warehouse where the unified customer data is stored and queried. |\n\n**Combined technology stack for the Customer 360 data pipelines**\n\n- **Cloud platform:** **AWS** (provisioned/managed via Terraform) – enables the compute, storage, and networking resources the pipelines run on.  \n- **Infrastructure‑as‑code:** **Terraform** – defines and maintains the pipeline infrastructure in a repeatable, version‑controlled manner.  \n- **Data processing / automation:** **Python** – scripts / services that extract, transform, and load (ETL) data across the unified platform.  \n- **Data warehouse:** **Snowflake** – serves as the central, scalable data lake/warehouse where CRM, product‑usage, billing, and support data are consolidated (as described in the document evidence for the “Unified customer data platform”).  \n\n---\n\n### Summary Answer\nThe **Customer 360 data pipelines are owned jointly by Nikhil Rao and Rohan Mehta**.  \n- **Nikhil Rao** uses **AWS** for the underlying cloud environment and **Terraform** for IaC provisioning.  \n- **Rohan Mehta** uses **Python** for pipeline code and **Snowflake** as the cloud data platform where the unified customer data is stored.\n\nThese owners and their tool choices are directly supported by the graph relationships; the document evidence confirms the broader purpose of the platform (a unified customer data platform) but does not add additional owners or technologies.",
+    "vector_answer": "Rohan Mehta owns the Customer 360 data pipelines.  \nHe builds and runs those pipelines with **Python**, **SQL**, and **Airflow** (the pipelines feed into Snowflake, which is used as the analytical data platform)."
+  },
+  {
+    "id": "Q04",
+    "question": "Which people approved the decision to use Pinecone for support copilot retrieval?",
+    "type": "decision_chain",
+    "expected_nodes": [
+      "DEC003",
+      "P004",
+      "PR004",
+      "T008"
+    ],
+    "graph_nodes": [
+      "D001",
+      "D002",
+      "D003",
+      "D004",
+      "D005",
+      "D006",
+      "D007",
+      "D008",
+      "DEC001",
+      "DEC002",
+      "DEC003",
+      "DEC004",
+      "DEC005",
+      "P001",
+      "P002",
+      "P003",
+      "P004",
+      "P005",
+      "P006",
+      "P007",
+      "PR001",
+      "PR002",
+      "PR003",
+      "PR004",
+      "PR005",
+      "S001",
+      "S002",
+      "S003",
+      "S004",
+      "S005",
+      "S006",
+      "S007",
+      "S008",
+      "T001",
+      "T002",
+      "T003",
+      "T004",
+      "T005",
+      "T006",
+      "T007",
+      "T008"
+    ],
+    "vector_nodes": [
+      "D006",
+      "D008",
+      "DEC003",
+      "PR004",
+      "T008"
+    ],
+    "graph_recall": 1.0,
+    "vector_recall": 0.75,
+    "graph_relationships": [
+      "SOC2 Compliance Audit -[DECISION_FOR]-> Centralize SOC2 evidence tracking in Jira",
+      "SOC2 Compliance Audit -[HAS_DOCUMENT]-> Audit Readiness Runbook",
+      "SOC2 Compliance Audit -[HAS_DOCUMENT]-> SOC2 Evidence Tracker",
+      "SOC2 Compliance Audit -[WORKED_ON]-> Kavya Shah",
+      "SOC2 Compliance Audit -[WORKED_ON]-> Aisha Raman",
+      "Customer 360 Platform -[DECISION_FOR]-> Use Snowflake as Customer 360 warehouse",
+      "Customer 360 Platform -[HAS_DOCUMENT]-> Customer 360 Architecture Notes",
+      "Customer 360 Platform -[WORKED_ON]-> Nikhil Rao",
+      "Customer 360 Platform -[WORKED_ON]-> Rohan Mehta",
+      "AI Support Copilot -[DECISION_FOR]-> Use Pinecone for support copilot retrieval",
+      "AI Support Copilot -[HAS_DOCUMENT]-> AI Support Copilot Design",
+      "AI Support Copilot -[WORKED_ON]-> Arjun Nair",
+      "Cloud Cost Optimization -[DECISION_FOR]-> Introduce AWS rightsizing policy",
+      "Cloud Cost Optimization -[HAS_DOCUMENT]-> Cloud Cost Review",
+      "Cloud Cost Optimization -[WORKED_ON]-> Daniel Wong",
+      "Cloud Cost Optimization -[WORKED_ON]-> Nikhil Rao",
+      "Confluence -[USED_TOOL]-> Arjun Nair",
+      "Confluence -[USED_TOOL]-> Daniel Wong",
+      "Confluence -[USED_TOOL]-> Meera Iyer",
+      "Centralize SOC2 evidence tracking in Jira -[DOCUMENTED_IN]-> SOC2 Evidence Tracker",
+      "Centralize SOC2 evidence tracking in Jira -[APPROVED_BY]-> Kavya Shah",
+      "Centralize SOC2 evidence tracking in Jira -[APPROVED_BY]-> Aisha Raman",
+      "Centralize SOC2 evidence tracking in Jira -[DECISION_FOR]-> SOC2 Compliance Audit",
+      "Audit Readiness Runbook -[AUTHORED]-> Kavya Shah",
+      "Audit Readiness Runbook -[HAS_DOCUMENT]-> SOC2 Compliance Audit",
+      "SOC2 Evidence Tracker -[DOCUMENTED_IN]-> Centralize SOC2 evidence tracking in Jira",
+      "SOC2 Evidence Tracker -[AUTHORED]-> Aisha Raman",
+      "SOC2 Evidence Tracker -[HAS_DOCUMENT]-> SOC2 Compliance Audit",
+      "Kavya Shah -[HAS_SKILL]-> Cloud Security",
+      "Kavya Shah -[WORKED_ON]-> Vendor Risk Assessment",
+      "Kavya Shah -[APPROVED_BY]-> Centralize SOC2 evidence tracking in Jira",
+      "Kavya Shah -[AUTHORED]-> Audit Readiness Runbook",
+      "Kavya Shah -[USED_TOOL]-> Datadog",
+      "Kavya Shah -[USED_TOOL]-> AWS",
+      "Kavya Shah -[WORKED_ON]-> SOC2 Compliance Audit",
+      "Aisha Raman -[HAS_SKILL]-> Compliance",
+      "Aisha Raman -[AUTHORED]-> Vendor Risk Assessment",
+      "Aisha Raman -[WORKED_ON]-> Vendor Risk Assessment",
+      "Aisha Raman -[APPROVED_BY]-> Centralize SOC2 evidence tracking in Jira",
+      "Aisha Raman -[AUTHORED]-> SOC2 Evidence Tracker",
+      "Aisha Raman -[USED_TOOL]-> Jira",
+      "Aisha Raman -[WORKED_ON]-> SOC2 Compliance Audit",
+      "Compliance -[HAS_SKILL]-> Aisha Raman",
+      "Vendor Risk Assessment -[AUTHORED]-> Aisha Raman",
+      "Vendor Risk Assessment -[WORKED_ON]-> Kavya Shah",
+      "Vendor Risk Assessment -[WORKED_ON]-> Aisha Raman",
+      "Jira -[USED_TOOL]-> Aisha Raman",
+      "Cloud Security -[HAS_SKILL]-> Kavya Shah",
+      "Datadog -[USED_TOOL]-> Daniel Wong",
+      "Datadog -[USED_TOOL]-> Kavya Shah",
+      "AWS -[USED_TOOL]-> Nikhil Rao",
+      "AWS -[USED_TOOL]-> Kavya Shah",
+      "Use Snowflake as Customer 360 warehouse -[DOCUMENTED_IN]-> Customer 360 Architecture Notes",
+      "Use Snowflake as Customer 360 warehouse -[APPROVED_BY]-> Nikhil Rao",
+      "Use Snowflake as Customer 360 warehouse -[APPROVED_BY]-> Rohan Mehta",
+      "Use Snowflake as Customer 360 warehouse -[DECISION_FOR]-> Customer 360 Platform",
+      "Customer 360 Architecture Notes -[DOCUMENTED_IN]-> Use Snowflake as Customer 360 warehouse",
+      "Customer 360 Architecture Notes -[AUTHORED]-> Nikhil Rao",
+      "Customer 360 Architecture Notes -[HAS_DOCUMENT]-> Customer 360 Platform",
+      "Nikhil Rao -[APPROVED_BY]-> Introduce AWS rightsizing policy",
+      "Nikhil Rao -[AUTHORED]-> Cloud Cost Review",
+      "Nikhil Rao -[USED_TOOL]-> Terraform",
+      "Nikhil Rao -[HAS_SKILL]-> AWS",
+      "Nikhil Rao -[WORKED_ON]-> Cloud Cost Optimization",
+      "Nikhil Rao -[APPROVED_BY]-> Use Snowflake as Customer 360 warehouse",
+      "Nikhil Rao -[AUTHORED]-> Customer 360 Architecture Notes",
+      "Nikhil Rao -[USED_TOOL]-> AWS",
+      "Nikhil Rao -[WORKED_ON]-> Customer 360 Platform",
+      "Rohan Mehta -[APPROVED_BY]-> Use Snowflake as Customer 360 warehouse",
+      "Rohan Mehta -[USED_TOOL]-> Python",
+      "Rohan Mehta -[USED_TOOL]-> Snowflake",
+      "Rohan Mehta -[HAS_SKILL]-> SQL",
+      "Rohan Mehta -[HAS_SKILL]-> Python",
+      "Rohan Mehta -[WORKED_ON]-> Customer 360 Platform",
+      "Python -[USED_TOOL]-> Rohan Mehta",
+      "Snowflake -[USED_TOOL]-> Rohan Mehta",
+      "SQL -[HAS_SKILL]-> Rohan Mehta",
+      "Python -[HAS_SKILL]-> Arjun Nair",
+      "Python -[HAS_SKILL]-> Rohan Mehta",
+      "Introduce AWS rightsizing policy -[DOCUMENTED_IN]-> Cloud Cost Review",
+      "Introduce AWS rightsizing policy -[APPROVED_BY]-> Daniel Wong",
+      "Introduce AWS rightsizing policy -[APPROVED_BY]-> Nikhil Rao",
+      "Introduce AWS rightsizing policy -[DECISION_FOR]-> Cloud Cost Optimization",
+      "Cloud Cost Review -[DOCUMENTED_IN]-> Introduce AWS rightsizing policy",
+      "Cloud Cost Review -[AUTHORED]-> Nikhil Rao",
+      "Cloud Cost Review -[HAS_DOCUMENT]-> Cloud Cost Optimization",
+      "Terraform -[USED_TOOL]-> Nikhil Rao",
+      "AWS -[HAS_SKILL]-> Nikhil Rao",
+      "Use Pinecone for support copilot retrieval -[DOCUMENTED_IN]-> AI Support Copilot Design",
+      "Use Pinecone for support copilot retrieval -[APPROVED_BY]-> Arjun Nair",
+      "Use Pinecone for support copilot retrieval -[DECISION_FOR]-> AI Support Copilot",
+      "AI Support Copilot Design -[DOCUMENTED_IN]-> Use Pinecone for support copilot retrieval",
+      "AI Support Copilot Design -[AUTHORED]-> Arjun Nair",
+      "AI Support Copilot Design -[HAS_DOCUMENT]-> AI Support Copilot",
+      "Arjun Nair -[APPROVED_BY]-> Use Pinecone for support copilot retrieval",
+      "Arjun Nair -[AUTHORED]-> AI Support Copilot Design",
+      "Arjun Nair -[USED_TOOL]-> Confluence",
+      "Arjun Nair -[USED_TOOL]-> Pinecone",
+      "Arjun Nair -[HAS_SKILL]-> Python",
+      "Arjun Nair -[HAS_SKILL]-> RAG",
+      "Arjun Nair -[WORKED_ON]-> AI Support Copilot",
+      "Pinecone -[USED_TOOL]-> Arjun Nair",
+      "RAG -[HAS_SKILL]-> Arjun Nair",
+      "Daniel Wong -[APPROVED_BY]-> Introduce AWS rightsizing policy",
+      "Daniel Wong -[USED_TOOL]-> Datadog",
+      "Daniel Wong -[WORKED_ON]-> Cloud Cost Optimization",
+      "Daniel Wong -[APPROVED_BY]-> Adopt hybrid enterprise pricing",
+      "Daniel Wong -[AUTHORED]-> Pricing Decision Log",
+      "Daniel Wong -[USED_TOOL]-> Confluence",
+      "Daniel Wong -[HAS_SKILL]-> Financial Modeling",
+      "Daniel Wong -[WORKED_ON]-> Pricing Revamp 2026",
+      "Adopt hybrid enterprise pricing -[DOCUMENTED_IN]-> Pricing Decision Log",
+      "Adopt hybrid enterprise pricing -[APPROVED_BY]-> Daniel Wong",
+      "Adopt hybrid enterprise pricing -[APPROVED_BY]-> Meera Iyer",
+      "Adopt hybrid enterprise pricing -[DECISION_FOR]-> Pricing Revamp 2026",
+      "Pricing Decision Log -[DOCUMENTED_IN]-> Adopt hybrid enterprise pricing",
+      "Pricing Decision Log -[AUTHORED]-> Daniel Wong",
+      "Pricing Decision Log -[HAS_DOCUMENT]-> Pricing Revamp 2026",
+      "Financial Modeling -[HAS_SKILL]-> Daniel Wong",
+      "Pricing Revamp 2026 -[DECISION_FOR]-> Adopt hybrid enterprise pricing",
+      "Pricing Revamp 2026 -[HAS_DOCUMENT]-> Pricing Decision Log",
+      "Pricing Revamp 2026 -[HAS_DOCUMENT]-> Pricing Strategy Memo",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Daniel Wong",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Meera Iyer",
+      "Meera Iyer -[APPROVED_BY]-> Adopt hybrid enterprise pricing",
+      "Meera Iyer -[AUTHORED]-> Pricing Strategy Memo",
+      "Meera Iyer -[USED_TOOL]-> Confluence",
+      "Meera Iyer -[HAS_SKILL]-> Pricing",
+      "Meera Iyer -[WORKED_ON]-> Pricing Revamp 2026",
+      "Pricing Strategy Memo -[AUTHORED]-> Meera Iyer",
+      "Pricing Strategy Memo -[HAS_DOCUMENT]-> Pricing Revamp 2026",
+      "Pricing -[HAS_SKILL]-> Meera Iyer"
+    ],
+    "vector_scores": [
+      {
+        "id": "DEC003",
+        "score": 0.718084335,
+        "label": "Decision",
+        "name": "Use Pinecone for support copilot retrieval"
+      },
+      {
+        "id": "D006",
+        "score": 0.516051292,
+        "label": "Document",
+        "name": "AI Support Copilot Design"
+      },
+      {
+        "id": "T008",
+        "score": 0.336201668,
+        "label": "Tool",
+        "name": "Pinecone"
+      },
+      {
+        "id": "PR004",
+        "score": 0.30236721,
+        "label": "Project",
+        "name": "AI Support Copilot"
+      },
+      {
+        "id": "D008",
+        "score": 0.223317146,
+        "label": "Document",
+        "name": "Vendor Risk Assessment"
+      }
+    ],
+    "graph_answer": "**People who approved the decision to use Pinecone for support‑copilot retrieval**\n\n| Approved By | Decision (as recorded in the graph) | Related Project / Tool | Documentation |\n|-------------|--------------------------------------|------------------------|----------------|\n| **Arjun Nair** | *Use Pinecone for support copilot retrieval* | AI Support Copilot – Retrieval pipeline (Pinecone) | AI Support Copilot Design (authored by Arjun Nair) |\n\n**Explanation (graph‑first)**  \n\n- The graph contains the edge `Use Pinecone for support copilot retrieval -[APPROVED_BY]-> Arjun Nair`, indicating that **Arjun Nair** is the approver of this decision.  \n- The reciprocal edge `Arjun Nair -[APPROVED_BY]-> Use Pinecone for support copilot retrieval` reinforces the same approval relationship.  \n\n**Supporting document detail (secondary)**  \n\n- The document text describes the support copilot as a “RAG‑based support assistant… Arjun Nair owns the retrieval pipeline, Pinecone stores embeddings, and Confluence is used as a source of internal product documentation.” While the text does not name the approver, it confirms Arjun Nair’s ownership of the retrieval pipeline, aligning with the graph’s record that he approved the use of Pinecone.\n\n**Conclusion**  \nThe only person recorded in the knowledge graph as having approved the decision to use Pinecone for the support copilot’s retrieval component is **Arjun Nair**. No other approvers are listed for this specific decision.",
+    "vector_answer": "The retrieved documents do not provide the names of the individuals who approved the decision to use Pinecone for the support copilot retrieval."
+  },
+  {
+    "id": "Q05",
+    "question": "What tools were used by the team responsible for the SOC2 audit evidence?",
+    "type": "multi_hop",
+    "expected_nodes": [
+      "D001",
+      "D002",
+      "P001",
+      "P005",
+      "T001",
+      "T003",
+      "T004"
+    ],
+    "graph_nodes": [
+      "P002",
+      "P005",
+      "P007",
+      "T003",
+      "T004",
+      "T005",
+      "T006",
+      "T007"
+    ],
+    "vector_nodes": [
+      "D001",
+      "D002",
+      "D008",
+      "DEC004",
+      "PR001"
+    ],
+    "graph_recall": 0.429,
+    "vector_recall": 0.286,
+    "graph_relationships": [
+      "AWS -[USED_TOOL]-> Nikhil Rao",
+      "AWS -[USED_TOOL]-> Kavya Shah",
+      "Snowflake -[USED_TOOL]-> Rohan Mehta",
+      "Nikhil Rao -[USED_TOOL]-> Terraform",
+      "Nikhil Rao -[USED_TOOL]-> AWS",
+      "Kavya Shah -[USED_TOOL]-> Datadog",
+      "Kavya Shah -[USED_TOOL]-> AWS",
+      "Datadog -[USED_TOOL]-> Kavya Shah",
+      "Terraform -[USED_TOOL]-> Nikhil Rao",
+      "Rohan Mehta -[USED_TOOL]-> Python",
+      "Rohan Mehta -[USED_TOOL]-> Snowflake",
+      "Python -[USED_TOOL]-> Rohan Mehta"
+    ],
+    "vector_scores": [
+      {
+        "id": "D001",
+        "score": 0.758407652,
+        "label": "Document",
+        "name": "SOC2 Evidence Tracker"
+      },
+      {
+        "id": "D002",
+        "score": 0.727276802,
+        "label": "Document",
+        "name": "Audit Readiness Runbook"
+      },
+      {
+        "id": "PR001",
+        "score": 0.712358475,
+        "label": "Project",
+        "name": "SOC2 Compliance Audit"
+      },
+      {
+        "id": "DEC004",
+        "score": 0.582301199,
+        "label": "Decision",
+        "name": "Centralize SOC2 evidence tracking in Jira"
+      },
+      {
+        "id": "D008",
+        "score": 0.397910118,
+        "label": "Document",
+        "name": "Vendor Risk Assessment"
+      }
+    ],
+    "graph_answer": "**Insufficient context.**  \n\nThe provided graph facts list several individuals (Nikhil Rao, Kavya Shah, Rohan Mehta) and the tools they use (AWS, Terraform, Datadog, Snowflake, Python), but there is no information linking any of these people, projects, or tools to a “team responsible for the SOC2 audit evidence.” Because the graph does not contain a relationship that identifies a SOC2‑audit‑related team, and the document excerpt only mentions generic categories of tools (cloud platform, data platform, monitoring, IaC, programming language) without associating them with a specific audit effort, I cannot determine which tools were used by that team.",
+    "vector_answer": "The team used **Jira** to track and submit SOC 2 evidence tasks, and **Confluence** to store the control documentation. (See D001 and D002)"
+  },
+  {
+    "id": "Q06",
+    "question": "Who approved the Snowflake decision, and what project was it for?",
+    "type": "decision_chain",
+    "expected_nodes": [
+      "DEC002",
+      "P002",
+      "P007",
+      "PR002",
+      "T005"
+    ],
+    "graph_nodes": [
+      "DEC002",
+      "P002",
+      "PR002",
+      "S002",
+      "S003",
+      "T005",
+      "T006"
+    ],
+    "vector_nodes": [
+      "D003",
+      "DEC002",
+      "DEC005",
+      "PR003",
+      "T005"
+    ],
+    "graph_recall": 0.8,
+    "vector_recall": 0.4,
+    "graph_relationships": [
+      "Snowflake -[USED_TOOL]-> Rohan Mehta",
+      "Rohan Mehta -[APPROVED_BY]-> Use Snowflake as Customer 360 warehouse",
+      "Rohan Mehta -[USED_TOOL]-> Python",
+      "Rohan Mehta -[USED_TOOL]-> Snowflake",
+      "Rohan Mehta -[HAS_SKILL]-> SQL",
+      "Rohan Mehta -[HAS_SKILL]-> Python",
+      "Rohan Mehta -[WORKED_ON]-> Customer 360 Platform",
+      "Use Snowflake as Customer 360 warehouse -[APPROVED_BY]-> Rohan Mehta",
+      "Use Snowflake as Customer 360 warehouse -[DECISION_FOR]-> Customer 360 Platform",
+      "Python -[USED_TOOL]-> Rohan Mehta",
+      "SQL -[HAS_SKILL]-> Rohan Mehta",
+      "Python -[HAS_SKILL]-> Rohan Mehta",
+      "Customer 360 Platform -[DECISION_FOR]-> Use Snowflake as Customer 360 warehouse",
+      "Customer 360 Platform -[WORKED_ON]-> Rohan Mehta"
+    ],
+    "vector_scores": [
+      {
+        "id": "T005",
+        "score": 0.432611406,
+        "label": "Tool",
+        "name": "Snowflake"
+      },
+      {
+        "id": "DEC002",
+        "score": 0.418164164,
+        "label": "Decision",
+        "name": "Use Snowflake as Customer 360 warehouse"
+      },
+      {
+        "id": "D003",
+        "score": 0.317408562,
+        "label": "Document",
+        "name": "Customer 360 Architecture Notes"
+      },
+      {
+        "id": "PR003",
+        "score": 0.170486435,
+        "label": "Project",
+        "name": "Pricing Revamp 2026"
+      },
+      {
+        "id": "DEC005",
+        "score": 0.142925248,
+        "label": "Decision",
+        "name": "Introduce AWS rightsizing policy"
+      }
+    ],
+    "graph_answer": "**Approver:** Rohan Mehta  \n**Decision:** *Use Snowflake as Customer 360 warehouse* (the Snowflake decision)  \n**Project the decision supports:** *Customer 360 Platform*  \n\n**How the answer is derived from the graph**\n\n| Graph relationship | Meaning |\n|--------------------|----------|\n| `Use Snowflake as Customer 360 warehouse –[APPROVED_BY]-> Rohan Mehta` | Rohan Mehta is the person who approved the Snowflake decision. |\n| `Use Snowflake as Customer 360 warehouse –[DECISION_FOR]-> Customer 360 Platform` | The decision is tied to the Customer 360 Platform project. |\n| `Customer 360 Platform –[DECISION_FOR]-> Use Snowflake as Customer 360 warehouse` | Confirms the decision’s target project. |\n| `Rohan Mehta –[USED_TOOL]-> Snowflake` | Shows Rohan’s involvement with the Snowflake tool, reinforcing his authority over the decision. |\n| `Rohan Mehta –[WORKED_ON]-> Customer 360 Platform` | Connects the approver directly to the project. |\n\n**Supporting document text**\n\n- “Unified customer data platform combining CRM, product usage, billing and support data.” – aligns with the *Customer 360 Platform* described in the graph.  \n\nThus, the Snowflake decision was approved by **Rohan Mehta** and it was made **for the Customer 360 Platform** project.",
+    "vector_answer": "The retrieved documents do not contain enough information to identify who approved the Snowflake decision or the specific project it was tied to. The decision titled “Use Snowflake as Customer 360 warehouse” (DEC002) is listed, but the details of the approval and the associated project are not provided in the excerpts. Therefore, I cannot answer the question based on the available evidence."
+  },
+  {
+    "id": "Q07",
+    "question": "Which people connected to pricing have financial modeling or pricing skills?",
+    "type": "skill_graph",
+    "expected_nodes": [
+      "P003",
+      "P006",
+      "PR003",
+      "S006",
+      "S008"
+    ],
+    "graph_nodes": [
+      "P003",
+      "PR003",
+      "S006"
+    ],
+    "vector_nodes": [
+      "D004",
+      "D005",
+      "P006",
+      "S006",
+      "S008"
+    ],
+    "graph_recall": 0.6,
+    "vector_recall": 0.6,
+    "graph_relationships": [
+      "Pricing -[HAS_SKILL]-> Meera Iyer",
+      "Meera Iyer -[HAS_SKILL]-> Pricing",
+      "Meera Iyer -[WORKED_ON]-> Pricing Revamp 2026",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Meera Iyer"
+    ],
+    "vector_scores": [
+      {
+        "id": "S008",
+        "score": 0.632810593,
+        "label": "Skill",
+        "name": "Financial Modeling"
+      },
+      {
+        "id": "S006",
+        "score": 0.601995409,
+        "label": "Skill",
+        "name": "Pricing"
+      },
+      {
+        "id": "P006",
+        "score": 0.57884407,
+        "label": "Person",
+        "name": "Daniel Wong"
+      },
+      {
+        "id": "D005",
+        "score": 0.4734478,
+        "label": "Document",
+        "name": "Pricing Decision Log"
+      },
+      {
+        "id": "D004",
+        "score": 0.436857224,
+        "label": "Document",
+        "name": "Pricing Strategy Memo"
+      }
+    ],
+    "graph_answer": "**People connected to pricing who have pricing or financial‑modeling skills (according to the graph):**\n\n| Person | Connection to Pricing | Skill(s) Evidenced in the Graph |\n|--------|----------------------|---------------------------------|\n| **Meera Iyer** | • Worked on *Pricing Revamp 2026* (↔ WORKED_ON) <br>• Directly linked to the “Pricing” node (↔ HAS_SKILL) | **Pricing** (explicitly listed as a skill). No financial‑modeling skill is recorded for any individual in the graph. |\n\n**Supporting detail from the document:**  \nThe document mentions a “Redesign of enterprise and team pricing, discount rules and packaging,” which aligns with the *Pricing Revamp 2026* project that Meera Iyer worked on, but it does not name any additional people or specify financial‑modeling expertise.\n\n**Conclusion:**  \nThe only person in the available graph who is both connected to pricing and possesses a pricing‑related skill is **Meera Iyer**. No evidence is provided for anyone having a financial‑modeling skill. If additional individuals with financial‑modeling or pricing skills exist, they are not captured in the current graph or document evidence.",
+    "vector_answer": "**Daniel Wong** – Listed as a Finance Lead in the People record (P006) with the skills **“Financial Modeling”** and **“Pricing.”**"
+  },
+  {
+    "id": "Q08",
+    "question": "Who worked on cloud cost optimization, what infrastructure tools were involved, and who approved the rightsizing policy?",
+    "type": "multi_hop",
+    "expected_nodes": [
+      "DEC005",
+      "P006",
+      "P007",
+      "PR005",
+      "T003",
+      "T004",
+      "T007"
+    ],
+    "graph_nodes": [
+      "DEC001",
+      "DEC002",
+      "DEC005",
+      "P006",
+      "P007",
+      "PR002",
+      "PR003",
+      "PR005",
+      "T002",
+      "T003",
+      "T004",
+      "T007"
+    ],
+    "vector_nodes": [
+      "D007",
+      "DEC005",
+      "PR005",
+      "S005",
+      "T003"
+    ],
+    "graph_recall": 1.0,
+    "vector_recall": 0.429,
+    "graph_relationships": [
+      "Cloud Cost Optimization -[DECISION_FOR]-> Introduce AWS rightsizing policy",
+      "Cloud Cost Optimization -[WORKED_ON]-> Daniel Wong",
+      "Cloud Cost Optimization -[WORKED_ON]-> Nikhil Rao",
+      "Daniel Wong -[APPROVED_BY]-> Introduce AWS rightsizing policy",
+      "Daniel Wong -[USED_TOOL]-> Datadog",
+      "Daniel Wong -[WORKED_ON]-> Cloud Cost Optimization",
+      "Daniel Wong -[APPROVED_BY]-> Adopt hybrid enterprise pricing",
+      "Daniel Wong -[USED_TOOL]-> Confluence",
+      "Daniel Wong -[WORKED_ON]-> Pricing Revamp 2026",
+      "Nikhil Rao -[APPROVED_BY]-> Introduce AWS rightsizing policy",
+      "Nikhil Rao -[USED_TOOL]-> Terraform",
+      "Nikhil Rao -[WORKED_ON]-> Cloud Cost Optimization",
+      "Nikhil Rao -[APPROVED_BY]-> Use Snowflake as Customer 360 warehouse",
+      "Nikhil Rao -[USED_TOOL]-> AWS",
+      "Nikhil Rao -[WORKED_ON]-> Customer 360 Platform",
+      "Introduce AWS rightsizing policy -[APPROVED_BY]-> Daniel Wong",
+      "Introduce AWS rightsizing policy -[APPROVED_BY]-> Nikhil Rao",
+      "Introduce AWS rightsizing policy -[DECISION_FOR]-> Cloud Cost Optimization",
+      "Datadog -[USED_TOOL]-> Daniel Wong",
+      "Adopt hybrid enterprise pricing -[APPROVED_BY]-> Daniel Wong",
+      "Adopt hybrid enterprise pricing -[DECISION_FOR]-> Pricing Revamp 2026",
+      "Confluence -[USED_TOOL]-> Daniel Wong",
+      "Pricing Revamp 2026 -[DECISION_FOR]-> Adopt hybrid enterprise pricing",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Daniel Wong",
+      "Terraform -[USED_TOOL]-> Nikhil Rao",
+      "Use Snowflake as Customer 360 warehouse -[APPROVED_BY]-> Nikhil Rao",
+      "Use Snowflake as Customer 360 warehouse -[DECISION_FOR]-> Customer 360 Platform",
+      "AWS -[USED_TOOL]-> Nikhil Rao",
+      "Customer 360 Platform -[DECISION_FOR]-> Use Snowflake as Customer 360 warehouse",
+      "Customer 360 Platform -[WORKED_ON]-> Nikhil Rao"
+    ],
+    "vector_scores": [
+      {
+        "id": "PR005",
+        "score": 0.654431343,
+        "label": "Project",
+        "name": "Cloud Cost Optimization"
+      },
+      {
+        "id": "D007",
+        "score": 0.632591307,
+        "label": "Document",
+        "name": "Cloud Cost Review"
+      },
+      {
+        "id": "S005",
+        "score": 0.452219903,
+        "label": "Skill",
+        "name": "Cloud Security"
+      },
+      {
+        "id": "DEC005",
+        "score": 0.423376083,
+        "label": "Decision",
+        "name": "Introduce AWS rightsizing policy"
+      },
+      {
+        "id": "T003",
+        "score": 0.40103817,
+        "label": "Tool",
+        "name": "AWS"
+      }
+    ],
+    "graph_answer": "**Who worked on Cloud Cost Optimization**  \n- **Daniel Wong** – linked to the *Cloud Cost Optimization* project in the graph (`Cloud Cost Optimization -[WORKED_ON]-> Daniel Wong`).  \n- **Nikhil Rao** – linked to the *Cloud Cost Optimization* project in the graph (`Cloud Cost Optimization -[WORKED_ON]-> Nikhil Rao`).  \n\n**Infrastructure tools that were involved**  \n\n| Person | Tool(s) used (graph) | Supporting document snippet |\n|--------|----------------------|------------------------------|\n| Daniel Wong | **Datadog** (`Daniel Wong -[USED_TOOL]-> Datadog`) | “Observability and infrastructure monitoring.” |\n| Daniel Wong | **Confluence** (`Daniel Wong -[USED_TOOL]-> Confluence`) | “Internal documentation and decision records.” |\n| Nikhil Rao | **Terraform** (`Nikhil Rao -[USED_TOOL]-> Terraform`) | “Infrastructure‑as‑code tool.” |\n| Nikhil Rao | **AWS** (`Nikhul Rao -[USED_TOOL]-> AWS`) | “Cloud infrastructure platform.” |\n\n**Who approved the AWS rightsizing policy**  \n- **Daniel Wong** – the policy *Introduce AWS rightsizing policy* lists Daniel as an approver (`Introduce AWS rightsizing policy -[APPROVED_BY]-> Daniel Wong`).  \n- **Nikhil Rao** – the same policy also lists Nikhil as an approver (`Introduce AWS rightsizing policy -[APPROVED_BY]-> Nikhil Rao`).  \n\n**Summary**  \n- The Cloud Cost Optimization effort was carried out by **Daniel Wong** and **Nikhil Rao**.  \n- The effort leveraged the infrastructure tools **Datadog**, **Confluence**, **Terraform**, and **AWS**.  \n- The **Introduce AWS rightsizing policy** decision was approved by both **Daniel Wong** and **Nikhil Rao**.  ",
+    "vector_answer": "**Who worked on cloud cost optimization**  \n- **Nikhil Rao** – owns the infrastructure changes.  \n- **Daniel Wong** – validates the savings forecasts.  \n\n**Infrastructure tools involved**  \n- **AWS** – the cloud platform whose spend is being reduced.  \n- **Datadog** – used to monitor workload utilization as part of the optimization effort.  \n\n**Who approved the rightsizing policy**  \n- The retrieved decision document (**DEC005 – “Introduce AWS rightsizing policy”**) does not contain information about the individual or group that approved the policy.  \n- **Insufficient evidence** to identify the approver."
+  },
+  {
+    "id": "Q09",
+    "question": "For the vendor risk assessment, which people covered security, compliance, and legal review?",
+    "type": "multi_hop",
+    "expected_nodes": [
+      "D008",
+      "P001",
+      "P005",
+      "P008",
+      "S001",
+      "S005"
+    ],
+    "graph_nodes": [
+      "D008",
+      "P001",
+      "P002",
+      "P003",
+      "P004",
+      "P005",
+      "P006",
+      "P007",
+      "P008",
+      "PR001",
+      "PR002",
+      "PR003",
+      "PR004",
+      "PR005"
+    ],
+    "vector_nodes": [
+      "D008",
+      "P001",
+      "P008",
+      "PR001",
+      "S001"
+    ],
+    "graph_recall": 0.667,
+    "vector_recall": 0.667,
+    "graph_relationships": [
+      "SOC2 Compliance Audit -[WORKED_ON]-> Kavya Shah",
+      "SOC2 Compliance Audit -[WORKED_ON]-> Aisha Raman",
+      "Customer 360 Platform -[WORKED_ON]-> Nikhil Rao",
+      "Customer 360 Platform -[WORKED_ON]-> Rohan Mehta",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Sara Thomas",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Daniel Wong",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Meera Iyer",
+      "AI Support Copilot -[WORKED_ON]-> Arjun Nair",
+      "Cloud Cost Optimization -[WORKED_ON]-> Daniel Wong",
+      "Cloud Cost Optimization -[WORKED_ON]-> Nikhil Rao",
+      "Kavya Shah -[WORKED_ON]-> Vendor Risk Assessment",
+      "Kavya Shah -[WORKED_ON]-> SOC2 Compliance Audit",
+      "Aisha Raman -[AUTHORED]-> Vendor Risk Assessment",
+      "Aisha Raman -[WORKED_ON]-> Vendor Risk Assessment",
+      "Aisha Raman -[WORKED_ON]-> SOC2 Compliance Audit",
+      "Vendor Risk Assessment -[AUTHORED]-> Aisha Raman",
+      "Vendor Risk Assessment -[WORKED_ON]-> Sara Thomas",
+      "Vendor Risk Assessment -[WORKED_ON]-> Kavya Shah",
+      "Vendor Risk Assessment -[WORKED_ON]-> Aisha Raman",
+      "Nikhil Rao -[WORKED_ON]-> Cloud Cost Optimization",
+      "Nikhil Rao -[WORKED_ON]-> Customer 360 Platform",
+      "Rohan Mehta -[WORKED_ON]-> Customer 360 Platform",
+      "Sara Thomas -[WORKED_ON]-> Vendor Risk Assessment",
+      "Sara Thomas -[WORKED_ON]-> Pricing Revamp 2026",
+      "Daniel Wong -[WORKED_ON]-> Cloud Cost Optimization",
+      "Daniel Wong -[WORKED_ON]-> Pricing Revamp 2026",
+      "Meera Iyer -[WORKED_ON]-> Pricing Revamp 2026",
+      "Arjun Nair -[WORKED_ON]-> AI Support Copilot"
+    ],
+    "vector_scores": [
+      {
+        "id": "D008",
+        "score": 0.766308784,
+        "label": "Document",
+        "name": "Vendor Risk Assessment"
+      },
+      {
+        "id": "P001",
+        "score": 0.56034559,
+        "label": "Person",
+        "name": "Aisha Raman"
+      },
+      {
+        "id": "S001",
+        "score": 0.446208,
+        "label": "Skill",
+        "name": "Compliance"
+      },
+      {
+        "id": "PR001",
+        "score": 0.396120071,
+        "label": "Project",
+        "name": "SOC2 Compliance Audit"
+      },
+      {
+        "id": "P008",
+        "score": 0.374187,
+        "label": "Person",
+        "name": "Sara Thomas"
+      }
+    ],
+    "graph_answer": "**People who covered the three review areas for the *Vendor Risk Assessment***  \n\n| Review Area | Person (role) | How we know it |\n|------------|----------------|----------------|\n| **Security** | **Kavya Shah** – assessed the security controls of the vendor. | Document evidence: “Kavya Shah assessed security controls.” <br>Graph fact: *Kavya Shah → WORKED_ON → Vendor Risk Assessment* |\n| **Compliance** | **Aisha Raman** – coordinated the compliance review of the vendor. | Document evidence: “Aisha Raman coordinated the review.” <br>Graph fact: *Aisha Raman → WORKED_ON → Vendor Risk Assessment* (and *AUTHORED* the assessment) |\n| **Legal / Contractual** | **Sara Thomas** – reviewed the data‑processing contractual terms (legal review). | Document evidence: “Sara Thomas reviewed data‑processing contractual terms.” <br>Graph fact: *Sara Thomas → WORKED_ON → Vendor Risk Assessment* |\n\n**Project**  \n- **Vendor Risk Assessment** – the overall effort that brought together the security, compliance and legal reviews. (Referenced in multiple graph edges: Kavya Shah, Aisha Raman, and Sara Thomas all *WORKED_ON* this project; Aisha Raman also *AUTHORED* it.)\n\n**Decisions / Deliverables**  \n- **Security assessment** of the vendor’s controls (performed by Kavya Shah).  \n- **Compliance coordination** of the review process (led by Aisha Raman).  \n- **Legal review** of the vendor’s data‑processing contractual terms (handled by Sara Thomas).\n\n**Summary**  \nThe vendor risk assessment’s security, compliance, and legal components were covered respectively by **Kavya Shah**, **Aisha Raman**, and **Sara Thomas**, all of whom are listed as contributors to the *Vendor Risk Assessment* in the organizational graph. The document evidence confirms each person’s specific responsibility within those three review domains.",
+    "vector_answer": "The vendor risk assessment involved three individuals:\n\n- **Aisha Raman** – coordinated the review (compliance focus)【D008】  \n- **Kavya Shah** – assessed the security controls【D008】  \n- **Sara Thomas** – reviewed the data‑processing contractual terms (legal review)【D008】"
+  },
+  {
+    "id": "Q10",
+    "question": "What was the approved enterprise pricing model, who approved it, and which document records the decision?",
+    "type": "decision_chain",
+    "expected_nodes": [
+      "D005",
+      "DEC001",
+      "P003",
+      "P006",
+      "PR003"
+    ],
+    "graph_nodes": [
+      "D004",
+      "DEC001",
+      "P003",
+      "PR003",
+      "S006",
+      "T002"
+    ],
+    "vector_nodes": [
+      "D004",
+      "D005",
+      "DEC001",
+      "PR003",
+      "S006"
+    ],
+    "graph_recall": 0.6,
+    "vector_recall": 0.6,
+    "graph_relationships": [
+      "Pricing -[HAS_SKILL]-> Meera Iyer",
+      "Meera Iyer -[APPROVED_BY]-> Adopt hybrid enterprise pricing",
+      "Meera Iyer -[AUTHORED]-> Pricing Strategy Memo",
+      "Meera Iyer -[USED_TOOL]-> Confluence",
+      "Meera Iyer -[HAS_SKILL]-> Pricing",
+      "Meera Iyer -[WORKED_ON]-> Pricing Revamp 2026",
+      "Adopt hybrid enterprise pricing -[APPROVED_BY]-> Meera Iyer",
+      "Adopt hybrid enterprise pricing -[DECISION_FOR]-> Pricing Revamp 2026",
+      "Pricing Strategy Memo -[AUTHORED]-> Meera Iyer",
+      "Pricing Strategy Memo -[HAS_DOCUMENT]-> Pricing Revamp 2026",
+      "Confluence -[USED_TOOL]-> Meera Iyer",
+      "Pricing Revamp 2026 -[DECISION_FOR]-> Adopt hybrid enterprise pricing",
+      "Pricing Revamp 2026 -[HAS_DOCUMENT]-> Pricing Strategy Memo",
+      "Pricing Revamp 2026 -[WORKED_ON]-> Meera Iyer"
+    ],
+    "vector_scores": [
+      {
+        "id": "DEC001",
+        "score": 0.67281723,
+        "label": "Decision",
+        "name": "Adopt hybrid enterprise pricing"
+      },
+      {
+        "id": "D005",
+        "score": 0.645947456,
+        "label": "Document",
+        "name": "Pricing Decision Log"
+      },
+      {
+        "id": "PR003",
+        "score": 0.581280231,
+        "label": "Project",
+        "name": "Pricing Revamp 2026"
+      },
+      {
+        "id": "D004",
+        "score": 0.51047039,
+        "label": "Document",
+        "name": "Pricing Strategy Memo"
+      },
+      {
+        "id": "S006",
+        "score": 0.355325669,
+        "label": "Skill",
+        "name": "Pricing"
+      }
+    ],
+    "graph_answer": "**Approved enterprise pricing model**  \n- **Hybrid enterprise pricing** (the “Adopt hybrid enterprise pricing” decision).\n\n**Who approved it**  \n- **Meera Iyer** – the graph shows a bidirectional “APPROVED_BY” relationship between Meera Iyer and the decision *Adopt hybrid enterprise pricing*.\n\n**Document that records the decision**  \n- **Pricing Strategy Memo** – the graph links this memo to the decision via the project *Pricing Revamp 2026* (`Pricing Revamp 2026 –[HAS_DOCUMENT]-> Pricing Strategy Memo`). The memo is authored by Meera Iyer, tying the approval and the documented record together.\n\n**Supporting context from the document evidence**  \n- The internal documentation notes that the pricing revamp considered “usage‑based, seat‑based and **hybrid packaging**,” confirming the hybrid model as the chosen approach.  \n- It also mentions Meera Iyer leading the product analysis, reinforcing her role in the decision‑making process.\n\n**Relevant entities** (named as requested)  \n\n| Role | Entity |\n|------|--------|\n| Approver / Author | **Meera Iyer** |\n| Decision | **Adopt hybrid enterprise pricing** |\n| Project | **Pricing Revamp 2026** |\n| Document | **Pricing Strategy Memo** |\n| Tool used for documentation | **Confluence** (used by Meera Iyer) |\n\n**Summary**  \nThe enterprise pricing model that was approved is the **hybrid enterprise pricing** model. The approval was granted by **Meera Iyer**, and the decision is formally recorded in the **Pricing Strategy Memo**, which is the document attached to the **Pricing Revamp 2026** project.",
+    "vector_answer": "**Approved enterprise pricing model:**  \nA hybrid model that combines a base subscription fee with a usage‑based component for enterprise customers.\n\n**Who approved it:**  \nDaniel Wong and Meera Iyer.\n\n**Document that records the decision:**  \nThe “Pricing Decision Log” (document ID D005)."
+  }
+]

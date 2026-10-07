@@ -1,0 +1,8 @@
+{
+  "queries": 10,
+  "graph_average_entity_recall": 0.776,
+  "vector_average_entity_recall": 0.5,
+  "graph_wins": 7,
+  "vector_wins": 0,
+  "ties": 3
+}
